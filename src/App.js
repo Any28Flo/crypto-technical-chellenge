@@ -1,11 +1,8 @@
 import React from 'react';
+import AppRoutes from './routes/AppRoutes';
 
-const App = () => {
-    return (
-        <div>
-            <h2>Challenge crypto</h2>
-        </div>
-    );
-};
+function App() {
+    return <AppRoutes />;
+}
 
 export default App;
