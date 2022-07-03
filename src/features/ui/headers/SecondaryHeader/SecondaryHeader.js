@@ -5,7 +5,7 @@ const H1= styled.h2`
     font: 700 2.4rem/2.8rem "Inter";
     color: #2C3747;
 `
-const PrimaryHeader = ({value}) => {
+const SecondaryHeader = ({value}) => {
     return (
         <H1>
             {value}
@@ -13,4 +13,4 @@ const PrimaryHeader = ({value}) => {
     );
 };
 
-export default PrimaryHeader;
+export default SecondaryHeader;
