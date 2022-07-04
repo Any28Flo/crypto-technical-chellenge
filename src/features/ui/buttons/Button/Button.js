@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const handleColor = (color) => {
@@ -14,13 +13,14 @@ const handleColor = (color) => {
 const Btn = styled.button`
     height: 4rem;
     border-radius: 2em;
-    padding: 1rem 13rem;
+    //padding-top: 1rem;
+    vertical-align: middle;
+    //padding-bottom: 1rem;
     border: none;
-    font: 600 1.4em/1.8em 'Inter';
+    font: 600 1.4rem/1.8rem 'Inter';
     ${({ color }) => handleColor(color)};
+    width: 100%;
 `;
-const Button = ({ children }) => {
-    return <Btn>{children}</Btn>;
-};
 
-export default Button;
+
+export default Btn;
