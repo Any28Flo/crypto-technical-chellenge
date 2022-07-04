@@ -48,15 +48,12 @@ const Footer = styled.div`
     margin-top: 12rem;
 `;
 
-const handleSubmit = (e) => {
-    console.log('sd');
-    console.log(e);
-};
 
 function Home() {
     const currencies = ['USD', 'GBP', 'EUR'];
-    const {  cryptoState } = useContext(CryptoContext);
-    console.log(cryptoState);
+
+    const {  cryptoState, handleSubmit} = useContext(CryptoContext);
+
     return (
       <>
             <PageHeader>Resumen Bitcoin</PageHeader>
@@ -66,13 +63,12 @@ function Home() {
                     <H3>Moneda</H3>
                     <FormPriceCrypto
                         options={currencies}
-                        handleSubmit={handleSubmit}
                     />
                 </Card>
                 <Card color="primary">
                     <H3Bold>Detalle</H3Bold>
                     <p>United States Dollar</p>
-                    <Input type="text" disabled value={cryptoState?.actualPrice}/>
+                    <Input type="text" disabled value={`$${cryptoState?.actualPrice}`}/>
                 </Card>
                 <Footer>
                     <Button onClick={handleSubmit}>Actualizar</Button>
