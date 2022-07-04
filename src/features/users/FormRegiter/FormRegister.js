@@ -24,6 +24,7 @@ const FormItem = styled.div`
     flex-direction: column;
     margin-bottom: 1.6rem;
 `;
+
 const Label = styled.label`
     color: #4a4a4a;
     font: 400 1.6rem/1.9rem 'Lato';
