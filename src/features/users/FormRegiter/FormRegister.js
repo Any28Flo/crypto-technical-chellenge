@@ -36,7 +36,7 @@ const Input = styled.input`
     border-radius: 2.5rem;
     padding: 1.5rem 2rem;
     color: #4a4a4a;
-
+    
     ::placeholder {
         color: #7b8186;
         font: 400 1.6rem/2rem 'Lato';

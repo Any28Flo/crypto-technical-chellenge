@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Subtitle from '../../features/ui/headers/Subtitle';
 import Button from "../../features/ui/buttons/Button/Button";
+import FormPriceCrypto from "../../features/crypto/FormPriceCrypto/FormPriceCrypto";
 
 const HomePage = styled.div`
     background-color: #e5e5e5;
@@ -16,13 +17,35 @@ const PageHeader = styled.div`
     padding-bottom: 2rem;
     text-align: center;
 `;
+const FormContainer = styled.div`
+  background-color: #ffffff;
+  padding-top: 2.1rem;
+  border-radius: 2rem;
+  margin-top: 2.4rem;
+
+  `
+;
+const H3  = styled.h3`
+  font: 400 1.6rem/1.6rem 'Lato';
+  text-align: center;
+
+`
+
+// const initState = {
+//   actualPrice:"",
+//   currency:""
+// }
 const Home = () => {
+  const currencies = ["USD", "GBP", "EUR"]
     return (
         <>
             <PageHeader>Resumen Bitcoin</PageHeader>
             <HomePage>
                 <Subtitle>Valor de Bitcoin actual</Subtitle>
-                <div></div>
+                 <FormContainer>
+                  <H3>Moneda</H3>
+                   <FormPriceCrypto options={currencies}/>
+                 </FormContainer>
                 <div className="details"></div>
                 <Button>Actualizar</Button>
             </HomePage>
