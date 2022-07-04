@@ -5,7 +5,7 @@ const CryptoContext = createContext();
 
 const initState = {
   actualPrice:0,
-  currency:"",
+  currency:"USD",
   error: "",
   loading: false
 }
