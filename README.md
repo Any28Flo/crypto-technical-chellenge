@@ -5,6 +5,14 @@ Is a  client application written in JavaScript (ES6) and React.
 
 
 ![Node](https://img.shields.io/badge/node-%3E%3D%2012.4-brightgreen.svg)
+
+### Default routes 
+You could find 3 default routes :
+
+* [onboarding](https://crypto-technical-chellenge-ow7vxqv6r-any28flo.vercel.app/onboarding)
+* [register](https://crypto-technical-chellenge-ow7vxqv6r-any28flo.vercel.app/register)
+* [main](https://crypto-technical-chellenge-ow7vxqv6r-any28flo.vercel.app/)
+
 ### Prepare environment variables
 
 For sensitive information, which we don't want them checked into git, we inject these configurations to the application as environment variables (even for local environment). Note: we'll likely improve this process in the future.
