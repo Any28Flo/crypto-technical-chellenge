@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import Subtitle from '../../features/ui/headers/Subtitle';
 import Button from '../../features/ui/buttons/Button/Button';
 import FormPriceCrypto from '../../features/crypto/FormPriceCrypto/FormPriceCrypto';
 import Input from '../../features/ui/Form/Input';
+import { CryptoContext } from "../../contexts/CryptoContext";
+
 const handleColor = (color) => {
     switch (color) {
         case 'white':
@@ -26,7 +28,7 @@ const PageHeader = styled.div`
     text-align: center;
 `;
 const Card = styled.div`
-  padding: 1.6rem 2.1rem;
+    padding: 1.6rem 2.1rem;
     border-radius: 2rem;
     margin-top: 2.4rem;
     box-shadow: 0rem 4rem 16rem rgba(36, 22, 77, 0.1);
@@ -43,37 +45,41 @@ const H3Bold = styled.h3`
     color: #198c9b;
 `;
 const Footer = styled.div`
-  margin-top: 12rem;
+    margin-top: 12rem;
 `;
 
-// const initState = {
-//   actualPrice:"",
-//   currency:""
-// }
+const handleSubmit = (e) => {
+    console.log('sd');
+    console.log(e);
+};
 
-const Home = () => {
+function Home() {
     const currencies = ['USD', 'GBP', 'EUR'];
+    const {  cryptoState } = useContext(CryptoContext);
+    console.log(cryptoState);
     return (
-        <>
+      <>
             <PageHeader>Resumen Bitcoin</PageHeader>
             <HomePage>
                 <Subtitle>Valor de Bitcoin actual</Subtitle>
                 <Card color="white">
                     <H3>Moneda</H3>
-                    <FormPriceCrypto options={currencies} />
+                    <FormPriceCrypto
+                        options={currencies}
+                        handleSubmit={handleSubmit}
+                    />
                 </Card>
                 <Card color="primary">
                     <H3Bold>Detalle</H3Bold>
                     <p>United States Dollar</p>
-                    <Input type="text" disabled value="$39,815.3417" />
+                    <Input type="text" disabled value={cryptoState?.actualPrice}/>
                 </Card>
-              <Footer>
-                <Button>Actualizar</Button>
-
-              </Footer>
+                <Footer>
+                    <Button onClick={handleSubmit}>Actualizar</Button>
+                </Footer>
             </HomePage>
         </>
     );
-};
+}
 
 export default Home;

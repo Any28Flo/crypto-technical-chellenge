@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
+import { CryptoContext } from '../../../contexts/CryptoContext';
 
 const Form = styled.form`
     display: flex;
@@ -17,10 +18,9 @@ const InputRadio = styled.input`
 `;
 
 const handleChecked = (checked) => {
-  if(checked){
-    return "color: #1BBCB2";
-  }
-
+    if (checked) {
+        return 'color: #1BBCB2';
+    }
 };
 
 const Label = styled.label`
@@ -31,47 +31,37 @@ const Label = styled.label`
     color: #5c7190;
     padding: 1.1rem 1.2rem;
     font: 00 1.4rem/1.7rem 'Lato';
-  ${({ checked }) => handleChecked(checked)};
-
+    ${({ checked }) => handleChecked(checked)};
 `;
 
 function FormPriceCrypto(props) {
     const { options } = props;
-    const [value, setValue] = useState(options[0]);
-    console.log(value);
 
-    const handleChange = (e) => {
-        const { value } = e.target.dataset;
-        setValue(value);
-    };
+    const { handleChange, cryptoState } = useContext(CryptoContext);
+
     useEffect(() => {
-        console.log('render');
-    }, [value]);
+
+    }, [cryptoState]);
+
     return (
         <Form>
             {options.map((option) => {
-                console.log(value === option);
                 return (
-                    <>
-                        {' '}
+                    <div key={option}>
                         <InputRadio
                             type="radio"
                             name="radios"
                             value={option}
-                            checked={value === option}
-                            onChange={handleChange}
                             key={`input-${option}`}
                         />
                         <Label
-                          checked={value === option}
-
-                          data-value={option}
+                            checked={cryptoState.currency === option}
+                            data-value={option}
                             onClick={handleChange}
-                            key={option}
                         >
                             {option}
                         </Label>{' '}
-                    </>
+                    </div>
                 );
             })}
         </Form>
